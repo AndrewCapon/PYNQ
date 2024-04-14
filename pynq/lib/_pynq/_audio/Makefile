@@ -1,6 +1,13 @@
 ifeq ($(BOARD), Pynq-Z1)
 C_SRC += audio_direct.cpp
 OBJSC += audio_direct.o
+else ifeq ($(BOARD), Zybo-Z7-20)
+C_SRC += audio_ssm2603.cpp \
+	 i2cps.c \
+	 uio.c
+OBJSC += audio_ssm2603.o \
+	 i2cps.o \
+	 uio.o
 else
 C_SRC += audio_adau1761.cpp \
 	 i2cps.c \
